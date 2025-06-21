@@ -4,7 +4,7 @@ import myPhoto from './assets/personal-image.png';
 
 function App() {
   return (
-    <>
+    <div>
       <main className="container d-flex flex-column justify-content-center align-items-center flex-grow-1">
         <section className="text-center">
           <img
@@ -50,7 +50,7 @@ function App() {
       >
         &copy; Ricardo Paiva
       </footer>
-    </>
+    </div>
   );
 }
 
