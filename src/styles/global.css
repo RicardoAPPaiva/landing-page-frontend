@@ -1,0 +1,14 @@
+.zoom-text {
+  display: inline-block; /* Needed for transform to work properly */
+  transition: transform 0.1s ease;
+  text-decoration: underline;
+}
+
+.zoom-text-no-underline {
+  display: inline-block; /* Needed for transform to work properly */
+  transition: transform 0.1s ease;
+}
+
+.zoom-text:hover, .zoom-text-no-underline:hover {
+  transform: scale(1.05);
+}

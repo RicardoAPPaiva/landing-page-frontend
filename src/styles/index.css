@@ -1,0 +1,79 @@
+.corner-banner {
+  margin-top: 10%;
+  margin-left: 10%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #545454; /* Bootstrap danger red */
+  color: white;
+  font-weight: bold;
+  padding: 5px 40px;
+  transform: rotate(45deg);
+  transform-origin: top right;
+  z-index: 9999;
+  font-size: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+/* Ensure full viewport height with flex layout */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Avatar image size */
+.avatar-image {
+  width: 150px;
+  height: 150px;
+}
+
+/* Navigation links styling */
+.custom-nav-link {
+  font-family: monospace;
+  font-size: 1.25rem;
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+.custom-nav-link:hover,
+.custom-nav-link:focus {
+  transform: scale(1.05);
+  text-decoration: underline;
+  outline: none;
+}
+
+/* Corner banner */
+.corner-banner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #dc3545; /* Bootstrap danger red */
+  color: white;
+  font-weight: bold;
+  padding: 5px 40px;
+  transform: rotate(45deg);
+  transform-origin: top right;
+  z-index: 9999;
+  font-size: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .corner-banner {
+    top: 100px;
+    padding: 5px 30px;
+    right: 0;
+    font-size: 12px; /* Optional: slightly smaller for mobile */
+  }
+}

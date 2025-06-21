@@ -1,0 +1,31 @@
+html,
+body {
+  height: 100%;
+}
+
+.arrow-icon {
+  width: 25px;
+  height: 30px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.arrow-icon:hover {
+  transform: scale(1.1);
+}
+
+.arrow-link {
+  display: inline-block;
+}
+
+img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}

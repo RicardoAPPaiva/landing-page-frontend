@@ -1,4 +1,6 @@
-import "./App.css";
+import "./styles/index.css";
+import "./styles/global.css";
+import myPhoto from './assets/personal-image.png';
 
 function App() {
   return (
@@ -6,7 +8,7 @@ function App() {
       <main className="container d-flex flex-column justify-content-center align-items-center flex-grow-1">
         <section className="text-center">
           <img
-            src="assets/images/personal-image.png"
+            src={myPhoto}
             alt="Portrait of Ricardo Paiva"
             className="rounded-circle img-fluid mb-4 avatar-image"
           />
