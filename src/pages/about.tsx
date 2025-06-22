@@ -1,17 +1,14 @@
-import "../styles/about.css"
-import backArrow from "../assets/back-arrow.png"
+import "../styles/about.css";
+import backArrow from "../assets/back-arrow.png";
+import { Link } from "react-router-dom";
 
-function About() {
+export default function About() {
   return (
     <body className="container d-flex flex-column justify-content-center align-items-center flex-grow-1">
       <div className="d-flex ml-0 pl-0 mb-4 mr-1 align-self-start">
-        <a href="../index.html" className="arrow-link">
-          <img
-            src={backArrow}
-            alt="Back"
-            className="arrow-icon"
-          />
-        </a>
+        <Link to="/" className="arrow-link">
+          <img src={backArrow} alt="Back" className="arrow-icon" />
+        </Link>
       </div>
       <div>
         <h1 className="font-monospace mb-5">About</h1>
@@ -30,5 +27,3 @@ function About() {
     </body>
   );
 }
-
-export default About;
