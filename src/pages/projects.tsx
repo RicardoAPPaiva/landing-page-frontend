@@ -25,9 +25,9 @@ const Projects: React.FC = () => {
               rel="noopener noreferrer"
               className="text-dark"
             >
-              <p className="font-monospace text-decoration-underline">
+              <b className="font-monospace text-decoration-underline">
                 Healthcare e-commerce platform
-              </p>
+              </b>
             </a>
           </li>
           <li>
@@ -37,16 +37,10 @@ const Projects: React.FC = () => {
               rel="noopener noreferrer"
               className="text-dark"
             >
-              <p className="font-monospace text-decoration-underline">
+              <b className="font-monospace text-decoration-underline">
                 Regulatory Content and Sustainability Intelligence SaaS
-              </p>
+              </b>
             </a>
-          </li>
-          <li>
-            <p className="font-monospace">Project 3 (To be defined)</p>
-          </li>
-          <li>
-            <p className="font-monospace">Project 4 (To be defined)</p>
           </li>
         </ul>
       </div>

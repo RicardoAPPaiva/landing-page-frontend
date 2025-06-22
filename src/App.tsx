@@ -1,9 +1,7 @@
-// App.tsx
-import "./styles/index.css";
-import "./styles/global.css";
-import myPhoto from "./assets/personal-image.png";
+import "./styles/app.css";
+import avatar from "./assets/avatar.png";
 import { Routes, Route, Link } from "react-router-dom";
-import About from "./pages/about"
+import About from "./pages/about";
 import Projects from "./pages/projects";
 import Resume from "./pages/resume";
 import Contacts from "./pages/contacts";
@@ -12,7 +10,7 @@ const Home = () => (
   <main className="container d-flex flex-column justify-content-center align-items-center flex-grow-1">
     <section className="text-center">
       <img
-        src={myPhoto}
+        src={avatar}
         alt="Portrait of Ricardo Paiva"
         className="rounded-circle img-fluid mb-4 avatar-image"
       />
@@ -47,7 +45,7 @@ const Home = () => (
 
 function App() {
   return (
-    <div>
+    <div className="app-container">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

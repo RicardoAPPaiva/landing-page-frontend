@@ -1,10 +1,10 @@
-import "../styles/about.css";
+import "../styles/global.css";
 import backArrow from "../assets/back-arrow.png";
 import { Link } from "react-router-dom";
 
 export default function About() {
   return (
-    <body className="container d-flex flex-column justify-content-center align-items-center flex-grow-1">
+    <div className="container d-flex flex-column justify-content-center align-items-center flex-grow-1">
       <div className="d-flex ml-0 pl-0 mb-4 mr-1 align-self-start">
         <Link to="/" className="arrow-link">
           <img src={backArrow} alt="Back" className="arrow-icon" />
@@ -24,6 +24,6 @@ export default function About() {
           opportunities and building long-term value.
         </p>
       </div>
-    </body>
+    </div>
   );
 }
