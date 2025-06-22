@@ -7,7 +7,7 @@
 .custom-nav-link {
   font-family: monospace;
   font-size: 1.25rem;
-  color: black;
+  color: var(--text-color);
   cursor: pointer;
   text-decoration: none;
   transition: transform 0.2s ease;

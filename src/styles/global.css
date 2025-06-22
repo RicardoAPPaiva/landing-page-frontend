@@ -1,3 +1,25 @@
+:root {
+  --bg-color: white;
+  --text-color: black;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+}
+
+[data-theme="light"] {
+  --bg-color: #ffffff;
+  --text-color: #121212;
+}
+
+html,
+body {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  transition: background-color 2s ease, color 2s ease;
+}
+
 html,
 body,
 #root {
@@ -22,6 +44,7 @@ main {
 
 footer {
   flex-shrink: 0;
+  color: var(--text-color);
 }
 
 .zoom-text {
@@ -35,7 +58,8 @@ footer {
   transition: transform 0.1s ease;
 }
 
-.zoom-text:hover, .zoom-text-no-underline:hover {
+.zoom-text:hover,
+.zoom-text-no-underline:hover {
   transform: scale(1.05);
 }
 

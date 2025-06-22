@@ -9,3 +9,7 @@ img {
   align-items: center;
   margin-bottom: 1rem;
 }
+
+a{
+  color: var(--text-color);
+}

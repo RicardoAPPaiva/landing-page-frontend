@@ -5,6 +5,7 @@ import About from "./pages/about";
 import Projects from "./pages/projects";
 import Resume from "./pages/resume";
 import Contacts from "./pages/contacts";
+import ThemeToggle from "./components/toggle";
 
 const Home = () => (
   <main className="container d-flex flex-column justify-content-center align-items-center flex-grow-1">
@@ -46,6 +47,12 @@ const Home = () => (
 function App() {
   return (
     <div className="app-container">
+      <header
+      className="pt-0 mt-0"
+        style={{ display: "flex", justifyContent: "flex-end", padding: "1rem" }}
+      >
+        <ThemeToggle />
+      </header>
       <Routes>
         <Route path="/landing-page-frontend" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -61,7 +68,7 @@ function App() {
       <div className="corner-banner">UNDER CONSTRUCTION</div>
 
       <footer
-        className="text-black text-center font-monospace text-uppercase py-3"
+        className="text-center font-monospace text-uppercase py-3"
         role="contentinfo"
       >
         &copy; Ricardo Paiva

@@ -30,7 +30,7 @@ const Contacts: React.FC = () => {
             href="https://www.linkedin.com/in/ricardopaiva2602/"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-monospace text-dark text-decoration-none mb-0"
+            className="font-monospace text-decoration-underline mb-0 zoom-text"
           >
             ricardopaiva2602
           </a>

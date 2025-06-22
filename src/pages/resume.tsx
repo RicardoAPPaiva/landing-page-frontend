@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/global.css";
+import "../styles/resume.css";
 import backArrow from "../assets/back-arrow.png";
 import { Link } from "react-router-dom";
 import resume from "../assets/ricardo-paiva-resume.pdf";
@@ -17,7 +18,7 @@ const Resume: React.FC = () => {
       <div className="align-self-start">
         <h1 className="font-monospace mb-5">Resume</h1>
         <a
-          className="font-monospace text-dark"
+          className="font-monospace"
           href={resume}
           download
           style={{

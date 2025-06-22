@@ -1,8 +1,8 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/projects.css';
-import '../styles/global.css';
-import { Link } from 'react-router-dom';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/projects.css";
+import "../styles/global.css";
+import { Link } from "react-router-dom";
 import backArrow from "../assets/back-arrow.png";
 
 const Projects: React.FC = () => {
@@ -23,11 +23,9 @@ const Projects: React.FC = () => {
               href="https://www.farmaciasportuguesas.pt/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-dark"
+              className="font-monospace text-decoration-underline zoom-text"
             >
-              <b className="font-monospace text-decoration-underline">
-                Healthcare e-commerce platform
-              </b>
+              Healthcare e-commerce platform
             </a>
           </li>
           <li>
@@ -35,11 +33,9 @@ const Projects: React.FC = () => {
               href="https://www.enhesa.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-dark"
+              className="font-monospace text-decoration-underline zoom-text"
             >
-              <b className="font-monospace text-decoration-underline">
-                Regulatory Content and Sustainability Intelligence SaaS
-              </b>
+              Regulatory Content and Sustainability Intelligence SaaS
             </a>
           </li>
         </ul>
