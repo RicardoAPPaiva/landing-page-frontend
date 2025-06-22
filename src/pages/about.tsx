@@ -6,7 +6,7 @@ export default function About() {
   return (
     <div className="container d-flex flex-column justify-content-center align-items-center flex-grow-1">
       <div className="d-flex ml-0 pl-0 mb-4 mr-1 align-self-start">
-        <Link to="/" className="arrow-link">
+        <Link to="/landing-page-frontend" className="arrow-link">
           <img src={backArrow} alt="Back" className="arrow-icon" />
         </Link>
       </div>

@@ -10,7 +10,7 @@ const Projects: React.FC = () => {
     <div className="container d-flex flex-column justify-content-center align-items-center flex-grow-1">
       {/* Back arrow */}
       <div className="mb-4 align-self-start">
-        <Link to="/" className="arrow-link">
+        <Link to="/landing-page-frontend" className="arrow-link">
           <img src={backArrow} alt="Back" className="arrow-icon" />
         </Link>
       </div>
