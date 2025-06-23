@@ -1,11 +1,61 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/contacts.css";
 import "../styles/global.css";
 import { Link } from "react-router-dom";
 import backArrow from "../assets/back-arrow.png";
-import googleImage from "../assets/google-logo.png";
-import linkedinImage from "../assets/linkedin-logo.png";
-import phoneImage from "../assets/cell-phone.png";
+import type { Contact } from "../models/contact";
+
+function ContactsList() {
+  const [contacts, setContacts] = useState<Contact[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  const username = "ricardo";
+  const password = "personalproject";
+  const credentials = btoa(`${username}:${password}`);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/contacts", {
+      method: "GET",
+      headers: {
+        Authorization: `Basic ${credentials}`,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        return response.json() as Promise<Contact[]>;
+      })
+      .then((data) => {
+        setContacts(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+        setError("Failed to fetch contacts");
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <p> Loading ... </p>;
+  if (error) return <p> {error} ... </p>;
+
+  return (
+    <div>
+      {contacts.map((contact) => (
+        <div className="contact-item" key={contact.id}>
+          <img
+            src={contact.logo}
+            alt={contact.type}
+          />
+          <p className="font-monospace mb-0">{contact.value}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 const Contacts: React.FC = () => {
   return (
@@ -18,28 +68,7 @@ const Contacts: React.FC = () => {
 
       <div className="align-self-start">
         <h1 className="font-monospace mb-5">Contacts</h1>
-
-        <div className="contact-item">
-          <img src={googleImage} alt="Gmail" />
-          <p className="font-monospace mb-0">ricardoappaiva@gmail.com</p>
-        </div>
-
-        <div className="contact-item">
-          <img src={linkedinImage} alt="LinkedIn" />
-          <a
-            href="https://www.linkedin.com/in/ricardopaiva2602/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-monospace text-decoration-underline mb-0 zoom-text"
-          >
-            ricardopaiva2602
-          </a>
-        </div>
-
-        <div className="contact-item">
-          <img src={phoneImage} alt="Phone" />
-          <p className="font-monospace mb-0">+351 961 190 814</p>
-        </div>
+        <ContactsList />
       </div>
     </div>
   );
