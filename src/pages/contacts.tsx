@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../styles/contacts.css";
 import "../styles/global.css";
-import { Link } from "react-router-dom";
-import backArrow from "../assets/back-arrow.png";
 import type { Contact } from "../models/contact";
+import BackButton from "../components/backButton";
 
 function ContactsList() {
   const [contacts, setContacts] = useState<Contact[]>([]);
@@ -60,11 +59,7 @@ function ContactsList() {
 const Contacts: React.FC = () => {
   return (
     <div className="container d-flex flex-column justify-content-center align-items-center flex-grow-1">
-      <div className="mb-4 align-self-start">
-        <Link to="/landing-page-frontend" className="arrow-link">
-          <img src={backArrow} alt="Back" className="arrow-icon" />
-        </Link>
-      </div>
+      <BackButton />
 
       <div className="align-self-start">
         <h1 className="font-monospace mb-5">Contacts</h1>

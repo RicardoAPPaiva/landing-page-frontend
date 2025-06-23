@@ -2,18 +2,12 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/projects.css";
 import "../styles/global.css";
-import { Link } from "react-router-dom";
-import backArrow from "../assets/back-arrow.png";
+import BackButton from "../components/backButton";
 
 const Projects: React.FC = () => {
   return (
     <div className="container d-flex flex-column justify-content-center align-items-center flex-grow-1">
-      {/* Back arrow */}
-      <div className="mb-4 align-self-start">
-        <Link to="/landing-page-frontend" className="arrow-link">
-          <img src={backArrow} alt="Back" className="arrow-icon" />
-        </Link>
-      </div>
+      <BackButton />
 
       <div className="align-self-start">
         <h1 className="font-monospace mb-5">Projects</h1>

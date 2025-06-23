@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import type { LandingPageContent } from "./models/landingPageContent.ts";
 
 function LandingPageContents() {
-  const [landingPageContent, setContacts] = useState<LandingPageContent>();
+  const [landingPageContent, setContent] = useState<LandingPageContent>();
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const username = "ricardo";
@@ -33,7 +33,7 @@ function LandingPageContents() {
         return response.json() as Promise<LandingPageContent>;
       })
       .then((data) => {
-        setContacts(data);
+        setContent(data);
         setLoading(false);
       })
       .catch((error) => {
