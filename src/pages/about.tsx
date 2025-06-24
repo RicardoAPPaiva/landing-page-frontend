@@ -4,7 +4,7 @@ import type { About } from "../models/about";
 import BackButton from "../components/backButton";
 
 function AboutContent() {
-  const [aboutContent, setContent] = useState<About>({description: ""});
+  const [aboutContent, setContent] = useState<About>({ description: "" });
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const username = "ricardo";
@@ -12,7 +12,7 @@ function AboutContent() {
   const credentials = btoa(`${username}:${password}`);
 
   useEffect(() => {
-    fetch("http://localhost:3001/about-page/content", {
+    fetch("https://landing-page-backend-cfnx.onrender.com/about-page/content", {
       method: "GET",
       headers: {
         Authorization: `Basic ${credentials}`,
@@ -32,7 +32,7 @@ function AboutContent() {
       })
       .catch((error) => {
         console.error("Error fetching data: ", error);
-        setError("Failed to fetch contacts");
+        setError("Failed to fetch content about Ricardo.");
         setLoading(false);
       });
   }, []);
@@ -42,6 +42,7 @@ function AboutContent() {
 
   return (
     <div>
+      <h1 className="font-monospace mb-5">About</h1>
       <p
         className="font-monospace"
         dangerouslySetInnerHTML={{ __html: aboutContent.description }}
@@ -55,7 +56,6 @@ export default function About() {
     <div className="container d-flex flex-column justify-content-center align-items-center flex-grow-1">
       <BackButton />
       <div>
-        <h1 className="font-monospace mb-5">About</h1>
         <AboutContent />
       </div>
     </div>

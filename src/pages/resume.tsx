@@ -13,7 +13,7 @@ function ResumeFileLink() {
   const credentials = btoa(`${username}:${password}`);
 
   useEffect(() => {
-    fetch("http://localhost:3001/files/resume", {
+    fetch("https://landing-page-backend-cfnx.onrender.com/files/resume", {
       method: "GET",
       headers: {
         Authorization: `Basic ${credentials}`,
@@ -32,7 +32,7 @@ function ResumeFileLink() {
       })
       .catch((error) => {
         console.error("Error fetching data: ", error);
-        setError("Failed to fetch resume");
+        setError("Failed to fetch resume.");
         setLoading(false);
       });
   }, []);
@@ -42,6 +42,7 @@ function ResumeFileLink() {
 
   return (
     <div>
+      <h1 className="font-monospace mb-5">Resume</h1>
       <a
         className="font-monospace text-decoration-underline d-inline-block"
         href={resumeUrl}
@@ -51,7 +52,8 @@ function ResumeFileLink() {
           transition: "transform 0.1s ease",
         }}
         onMouseOver={(e) => {
-          (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1.05)";
+          (e.currentTarget as HTMLAnchorElement).style.transform =
+            "scale(1.05)";
         }}
         onMouseOut={(e) => {
           (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1)";
@@ -68,7 +70,6 @@ const Resume: React.FC = () => {
     <div className="container d-flex flex-column justify-content-center align-items-center flex-grow-1">
       <BackButton />
       <div className="align-self-start">
-        <h1 className="font-monospace mb-5">Resume</h1>
         <ResumeFileLink />
       </div>
     </div>

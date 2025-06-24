@@ -14,7 +14,7 @@ function ProjectsList() {
   const credentials = btoa(`${username}:${password}`);
 
   useEffect(() => {
-    fetch("http://localhost:3001/projects", {
+    fetch("https://landing-page-backend-cfnx.onrender.com/projects", {
       method: "GET",
       headers: {
         Authorization: `Basic ${credentials}`,
@@ -34,7 +34,7 @@ function ProjectsList() {
       })
       .catch((error) => {
         console.error("Error fetching data: ", error);
-        setError("Failed to fetch projects");
+        setError("Failed to fetch projects.");
         setLoading(false);
       });
   }, []);

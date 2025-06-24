@@ -13,7 +13,7 @@ function ContactsList() {
   const credentials = btoa(`${username}:${password}`);
 
   useEffect(() => {
-    fetch("http://localhost:3001/contacts", {
+    fetch("https://landing-page-backend-cfnx.onrender.com/contacts", {
       method: "GET",
       headers: {
         Authorization: `Basic ${credentials}`,
@@ -33,7 +33,7 @@ function ContactsList() {
       })
       .catch((error) => {
         console.error("Error fetching data: ", error);
-        setError("Failed to fetch contacts");
+        setError("Failed to fetch contacts.");
         setLoading(false);
       });
   }, []);
@@ -43,12 +43,10 @@ function ContactsList() {
 
   return (
     <div>
+      <h1 className="font-monospace mb-5">Contacts</h1>
       {contacts.map((contact) => (
         <div className="contact-item" key={contact.id}>
-          <img
-            src={contact.logo}
-            alt={contact.type}
-          />
+          <img src={contact.logo} alt={contact.type} />
           <p className="font-monospace mb-0">{contact.value}</p>
         </div>
       ))}
@@ -62,7 +60,6 @@ const Contacts: React.FC = () => {
       <BackButton />
 
       <div className="align-self-start">
-        <h1 className="font-monospace mb-5">Contacts</h1>
         <ContactsList />
       </div>
     </div>

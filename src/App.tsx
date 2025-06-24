@@ -18,7 +18,7 @@ function LandingPageContents() {
   const credentials = btoa(`${username}:${password}`);
 
   useEffect(() => {
-    fetch("http://localhost:3001/landing-page/content", {
+    fetch("https://landing-page-backend-cfnx.onrender.com/landing-page/content", {
       method: "GET",
       headers: {
         Authorization: `Basic ${credentials}`,
@@ -38,7 +38,7 @@ function LandingPageContents() {
       })
       .catch((error) => {
         console.error("Error fetching data: ", error);
-        setError("Failed to fetch contacts");
+        setError("Failed to fetch landing page content.");
         setLoading(false);
       });
   }, []);
