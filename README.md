@@ -13,15 +13,6 @@ This is a personal landing page built using **React** for the frontend and **Exp
 
 ---
 
-## 📸 Screenshots
-
-### Home Page
-![Landing Page Screenshot](https://ricardoappaiva.github.io/landing-page-frontend/screenshot.png)
-
-*(If you don't have a screenshot yet, you can replace this link with an actual image URL or upload an image in your repository.)*
-
----
-
 ## 🛠️ Tech Stack
 
 - **Frontend:** React
