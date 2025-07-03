@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
 
 import type { LandingPageContent } from "./models/landingPageContent.ts";
+import Blog from "./pages/blog.tsx";
 
 function LandingPageContents() {
   const [landingPageContent, setContent] = useState<LandingPageContent>();
@@ -24,6 +25,7 @@ function LandingPageContents() {
   useEffect(() => {
     fetch(
       "https://landing-page-backend-cfnx.onrender.com/landing-page/content",
+      // "http://localhost:3001/landing-page/content",
       {
         method: "GET",
         headers: {
@@ -132,6 +134,7 @@ function App() {
       <Routes>
         <Route path="/landing-page-frontend" element={<LandingPage />} />
         <Route path="/about" element={<About />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/contacts" element={<Contacts />} />
