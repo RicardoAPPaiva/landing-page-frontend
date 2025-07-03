@@ -38,14 +38,15 @@ function LeftSideContent({ onSelectPattern }: LeftSideContentProps) {
 
 function RightSideContent({ selectedPattern }: RightSideContentProps) {
   const patternDetails: { [key: string]: string } = {
-    "Factory Design Pattern": "This is factory",
+    "Factory Design Pattern":
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti at impedit possimus ipsam excepturi consequuntur, perspiciatis quibusdam dolor! Voluptatum omnis eveniet doloremque! Impedit dolore nihil enim, distinctio consectetur ab iste.",
     "Singleton Design Pattern": "This is singleton",
     "Repository Design Pattern": "This is repository",
     "Unit of Work Design Pattern": "This is uow",
   };
 
   return (
-    <div className="flex-grow-1 p-4">
+    <div className="flex-grow-1 p-4 w-100">
       {selectedPattern ? (
         <>
           <h2 className="font-monospace mb-4">{selectedPattern}</h2>
