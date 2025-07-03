@@ -5,7 +5,8 @@ import Projects from "./pages/projects";
 import Resume from "./pages/resume";
 import Contacts from "./pages/contacts";
 import ThemeToggle from "./components/toggle";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Typed from "typed.js";
 
 import type { LandingPageContent } from "./models/landingPageContent.ts";
 
@@ -17,20 +18,23 @@ function LandingPageContents() {
   const password = "personalproject";
   const credentials = btoa(`${username}:${password}`);
 
-  useEffect(() => {
-    fetch("https://landing-page-backend-cfnx.onrender.com/landing-page/content", {
-      method: "GET",
-      headers: {
-        Authorization: `Basic ${credentials}`,
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
+  const typedRef = useRef<HTMLHeadingElement>(null);
+  const typedInstance = useRef<Typed | null>(null);
 
-        return response.json() as Promise<LandingPageContent>;
+  useEffect(() => {
+    fetch(
+      "https://landing-page-backend-cfnx.onrender.com/landing-page/content",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Basic ${credentials}`,
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((response) => {
+        if (!response.ok) throw new Error("Network response was not ok");
+        return response.json();
       })
       .then((data) => {
         setContent(data);
@@ -41,28 +45,58 @@ function LandingPageContents() {
         setError("Failed to fetch landing page content.");
         setLoading(false);
       });
-  }, []);
+  }, [credentials]);
 
-  if (loading) return <p> Loading ... </p>;
-  if (error) return <p> {error} ... </p>;
+  useEffect(() => {
+    if (landingPageContent?.name && typedRef.current) {
+      if (typedInstance.current) {
+        typedInstance.current.destroy();
+      }
+      typedInstance.current = new Typed(typedRef.current, {
+        strings: [landingPageContent.name],
+        typeSpeed: 180,
+        backSpeed: 25,
+        showCursor: true,
+        cursorChar: "_",
+        loop: false,
+      });
+    }
+
+    return () => {
+      if (typedInstance.current) {
+        typedInstance.current.destroy();
+      }
+    };
+  }, [landingPageContent]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
-    <div>
+    <div className="">
       <section className="text-center">
-        <img
-          src={landingPageContent?.icon}
-          alt="Portrait of Ricardo Paiva"
-          className="rounded-circle img-fluid mb-4 avatar-image"
-        />
-        <h1 className="text-uppercase fw-bold font-monospace">Ricardo Paiva</h1>
-        <figure>
-          <blockquote className="blockquote">
-            <p className="mb-0">{landingPageContent?.role}</p>
-          </blockquote>
-          <figcaption className="blockquote-footer">
-            {landingPageContent?.citation}
-          </figcaption>
-        </figure>
+        <div>
+          <img
+            src={landingPageContent?.icon}
+            alt="Portrait of Ricardo Paiva"
+            className="rounded-circle img-fluid mb-4 avatar-image"
+          />
+        </div>
+        <div className="d-inline-block flex-column">
+          <h1
+            className="text-uppercase fw-bold font-monospace username"
+            ref={typedRef}
+            style={{ whiteSpace: "nowrap", display: "inline-block" }}
+          ></h1>
+          <figure>
+            <blockquote className="blockquote">
+              <p className="mb-0">{landingPageContent?.role}</p>
+            </blockquote>
+            <figcaption className="blockquote-footer">
+              {landingPageContent?.citation}
+            </figcaption>
+          </figure>
+        </div>
       </section>
 
       <nav
